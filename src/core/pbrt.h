@@ -72,8 +72,14 @@ class Ray;
 class RayDifferential;
 class Transform;
 class AnimatedTransform;
+struct Interaction;
+class SurfaceInteraction;
+class Shape;
 
+class Material;
 class Medium;
+class MediumInteraction;
+struct MediumInterface;
 
 //#define PBRT_FLOAT_AS_DOUBLE
 #ifdef PBRT_FLOAT_AS_DOUBLE

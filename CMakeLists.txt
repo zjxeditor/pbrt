@@ -153,13 +153,6 @@ INCLUDE_DIRECTORIES(
 
 # Set the source files
 # todo: complete source list
-SET(PBRT_CORE_SOURCE
-        src/core/geometry.cpp
-        src/core/transform.cpp
-        src/core/quaternion.cpp
-        src/core/error.cpp
-        src/core/api.cpp
-        )
 
 SET(PBRT_CORE_HEADERS
         src/core/pbrt.h
@@ -169,8 +162,17 @@ SET(PBRT_CORE_HEADERS
         src/core/transform.h
         src/core/quaternion.h
         src/core/error.h
-        src/core/api.h)
+        src/core/api.h
+        src/core/interaction.h)
 
+SET(PBRT_CORE_SOURCE
+        src/core/geometry.cpp
+        src/core/transform.cpp
+        src/core/quaternion.cpp
+        src/core/error.cpp
+        src/core/api.cpp
+        src/core/interaction.cpp
+        )
 
 # Set files
 # todo: complete file list
