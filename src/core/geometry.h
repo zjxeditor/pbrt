@@ -1551,6 +1551,7 @@ inline bool Bounds3<T>::IntersectP(const Ray &ray, Float *hitt0, Float *hitt1) c
 template<typename T>
 inline bool Bounds3<T>::IntersectP(const Ray &ray, const Vector3f &invDir,
                                    const int dirIsNeg[3]) const {
+    // Remove the comparision dependency to speed up
     const Bounds3f &bounds = *this;
     // Check for ray intersection against $x$ and $y$ slabs
     Float tMin = (bounds[dirIsNeg[0]].x - ray.o.x) * invDir.x;

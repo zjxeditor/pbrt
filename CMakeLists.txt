@@ -163,7 +163,9 @@ SET(PBRT_CORE_HEADERS
         src/core/quaternion.h
         src/core/error.h
         src/core/api.h
-        src/core/interaction.h)
+        src/core/interaction.h
+        src/core/shape.h
+        src/core/efloat.h)
 
 SET(PBRT_CORE_SOURCE
         src/core/geometry.cpp
@@ -172,13 +174,15 @@ SET(PBRT_CORE_SOURCE
         src/core/error.cpp
         src/core/api.cpp
         src/core/interaction.cpp
-        )
+        src/core/shape.cpp
+        src/core/efloat.cpp)
 
 # Set files
 # todo: complete file list
 FILE(GLOB PBRT_SOURCE
         src/ext/*.c
         src/ext/*.cpp
+        src/shapes/*.cpp
         )
 
 # Add additional directories

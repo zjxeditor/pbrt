@@ -4,6 +4,7 @@
 
 #include "interaction.h"
 #include "transform.h"
+#include "shape.h"
 
 namespace pbrt {
 

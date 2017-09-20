@@ -23,13 +23,6 @@ struct MediumInterface {
     const int *P;
 };
 
-// todo: declare Shape in the right place
-class Shape {
-public:
-    bool reverseOrientation;
-    bool transformSwapsHandedness;
-};
-
 // Interaction Declarations
 struct Interaction {
     // Interaction Public Methods
