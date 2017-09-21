@@ -14,7 +14,7 @@ Hyperboloid::Hyperboloid(const Transform *o2w, const Transform *w2o, bool ro,
         : Shape(o2w, w2o, ro) {
     p1 = point1;
     p2 = point2;
-    phiMax = Radians(Clamp(tm, 0, 360));
+    phiMax = Radians(Clamp(tm, 0, 2 * Pi));
     Float radius1 = std::sqrt(p1.x * p1.x + p1.y * p1.y);
     Float radius2 = std::sqrt(p2.x * p2.x + p2.y * p2.y);
     rMax = std::max(radius1, radius2);

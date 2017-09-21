@@ -13,7 +13,7 @@ Cone::Cone(const Transform *o2w, const Transform *w2o, bool ro, Float height,
         : Shape(o2w, w2o, ro),
           radius(radius),
           height(height),
-          phiMax(Radians(Clamp(phiMax, 0, 360))) {}
+          phiMax(Radians(Clamp(phiMax, 0, 2 * Pi))) {}
 
 Bounds3f Cone::ObjectBound() const {
     Point3f p1 = Point3f(-radius, -radius, 0);
