@@ -27,7 +27,7 @@ public:
               zMax(Clamp(std::max(zMin, zMax), -radius, radius)),
               thetaMin(std::acos(Clamp(std::min(zMin, zMax) / radius, -1, 1))),
               thetaMax(std::acos(Clamp(std::max(zMin, zMax) / radius, -1, 1))),
-              phiMax(Radians(Clamp(phiMax, 0, 360))) {}
+              phiMax(Radians(Clamp(phiMax, 0, 2 * Pi))) {}
     Bounds3f ObjectBound() const;
     bool Intersect(const Ray &ray, Float *tHit, SurfaceInteraction *isect,
                    bool testAlphaTexture) const;
