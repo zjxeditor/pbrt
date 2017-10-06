@@ -23,6 +23,16 @@ struct MediumInterface {
     const int *P;
 };
 
+// todo: declare Texture in the right place
+template <typename T>
+class Texture {
+public:
+    // Texture Interface
+    virtual T Evaluate(const SurfaceInteraction &) const = 0;
+    virtual ~Texture() {}
+};
+
+
 // Interaction Declarations
 struct Interaction {
     // Interaction Public Methods

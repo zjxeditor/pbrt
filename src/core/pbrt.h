@@ -77,6 +77,8 @@ class SurfaceInteraction;
 class Shape;
 
 class Material;
+template <typename T>
+class Texture;
 class Medium;
 class MediumInteraction;
 struct MediumInterface;
