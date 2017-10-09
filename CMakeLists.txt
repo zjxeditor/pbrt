@@ -175,7 +175,8 @@ SET(PBRT_CORE_SOURCE
         src/core/api.cpp
         src/core/interaction.cpp
         src/core/shape.cpp
-        src/core/efloat.cpp)
+        src/core/efloat.cpp
+        src/shapes/curve.cpp)
 
 # Set files
 # todo: complete file list
