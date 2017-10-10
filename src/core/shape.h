@@ -14,6 +14,7 @@
 #include "geometry.h"
 #include "interaction.h"
 #include "transform.h"
+#include "memory.h"
 
 namespace pbrt {
 

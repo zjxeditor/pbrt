@@ -165,7 +165,8 @@ SET(PBRT_CORE_HEADERS
         src/core/api.h
         src/core/interaction.h
         src/core/shape.h
-        src/core/efloat.h)
+        src/core/efloat.h
+        src/core/memory.h)
 
 SET(PBRT_CORE_SOURCE
         src/core/geometry.cpp
@@ -176,7 +177,8 @@ SET(PBRT_CORE_SOURCE
         src/core/interaction.cpp
         src/core/shape.cpp
         src/core/efloat.cpp
-        src/shapes/curve.cpp)
+        src/shapes/curve.cpp
+        src/core/memory.cpp)
 
 # Set files
 # todo: complete file list
