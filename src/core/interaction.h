@@ -16,11 +16,25 @@
 
 namespace pbrt {
 
+// todo: declare Medium in the right place
+class Medium {
+public:
+    Medium() : a(0) {}
+    bool operator==(const Medium& m){ return a == m.a; }
+    bool operator!=(const Medium& m){ return a != m.a; }
+
+    int a;
+};
+
 // todo: declare MediumInterface in the right place
 struct MediumInterface {
-    MediumInterface() {}
-    MediumInterface(const int *p) : P(p) {};
-    const int *P;
+    MediumInterface() : inside(nullptr), outside(nullptr) {}
+    // MediumInterface Public Methods
+    MediumInterface(const Medium *medium) : inside(medium), outside(medium) {}
+    MediumInterface(const Medium *inside, const Medium *outside)
+            : inside(inside), outside(outside) {}
+    bool IsMediumTransition() const { return inside != outside; }
+    const Medium *inside, *outside;
 };
 
 // todo: declare Texture in the right place
@@ -53,8 +67,32 @@ struct Interaction {
                 const MediumInterface &mediumInterface)
             : p(p), time(time), mediumInterface(mediumInterface) {}
 
+    Ray SpawnRay(const Vector3f &d) const {
+        Point3f o = OffsetRayOrigin(p, pError, n, d);
+        return Ray(o, d, Infinity, time, GetMedium(d));
+    }
+    Ray SpawnRayTo(const Point3f &p2) const {
+        Point3f origin = OffsetRayOrigin(p, pError, n, p2 - p);
+        Vector3f d = p2 - p;
+        return Ray(origin, d, 1 - ShadowEpsilon, time, GetMedium(d));
+    }
+    Ray SpawnRayTo(const Interaction &it) const {
+        Point3f origin = OffsetRayOrigin(p, pError, n, it.p - p);
+        Point3f target = OffsetRayOrigin(it.p, it.pError, it.n, origin - it.p);
+        Vector3f d = target - origin;
+        return Ray(origin, d, 1 - ShadowEpsilon, time, GetMedium(d));
+    }
+
     bool IsSurfaceInteraction() const { return n != Normal3f(); }
     bool IsMediumInteraction() const { return !IsSurfaceInteraction(); }
+
+    const Medium *GetMedium(const Vector3f &w) const {
+        return Dot(w, n) > 0 ? mediumInterface.outside : mediumInterface.inside;
+    }
+    const Medium *GetMedium() const {
+        CHECK_EQ(mediumInterface.inside, mediumInterface.outside);
+        return mediumInterface.inside;
+    }
 
     // Interaction Public Data
     Point3f p;

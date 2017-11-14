@@ -1,5 +1,5 @@
 //
-// Provide efficient memory management utilitise.
+// Provide efficient memory management utilities.
 //
 
 #if defined(_MSC_VER)

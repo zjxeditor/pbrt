@@ -1,5 +1,5 @@
 //
-// Provide efficient memory management utilitise.
+// Provide efficient memory management utilities.
 //
 
 #include "memory.h"
