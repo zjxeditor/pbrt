@@ -74,6 +74,8 @@ struct Interaction {
     MediumInterface mediumInterface;
 };
 
+// todo: add medium interaction
+
 // SurfaceInteraction Declarations
 class SurfaceInteraction : public Interaction {
 public:
@@ -109,7 +111,6 @@ public:
     BSSRDF *bssrdf = nullptr;
     mutable Vector3f dpdx, dpdy;
     mutable Float dudx = 0, dvdx = 0, dudy = 0, dvdy = 0;
-
 };
 
 

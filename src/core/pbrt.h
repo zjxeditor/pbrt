@@ -95,6 +95,12 @@ typedef double Float;
 typedef float Float;
 #endif  // PBRT_FLOAT_AS_DOUBLE
 
+class ProgressReporter;
+class MemoryArena;
+template <typename T, int logBlockSize = 2>
+class BlockedArray;
+struct Matrix4x4;
+
 struct Options {
     int nThreads = 0;
     bool quickRender = false;
@@ -130,7 +136,6 @@ static PBRT_CONSTEXPR Float Sqrt2 = 1.41421356237309504880;
 #if defined(PBRT_IS_MSVC)
 #define alloca _alloca
 #endif
-
 
 
 // todo: add other utilities

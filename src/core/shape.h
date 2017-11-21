@@ -33,6 +33,8 @@ public:
     }
     virtual Float Area() const = 0;
 
+    // todo: add sample related methods
+
     // Shape Public Data
     const Transform *ObjectToWorld, *WorldToObject;
     const bool reverseOrientation;

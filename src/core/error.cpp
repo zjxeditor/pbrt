@@ -4,7 +4,9 @@
 
 #include "error.h"
 #include "stringprint.h"
+#include "progressreporter.h"
 #include <mutex>
+
 // Error Reporting Includes
 #include <stdarg.h>
 

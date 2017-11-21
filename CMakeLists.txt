@@ -169,6 +169,9 @@ SET(PBRT_CORE_HEADERS
         src/core/memory.h
         src/core/primitives.h
         src/core/material.h
+        src/core/parallel.h
+        src/core/progressreporter.h
+        src/core/stats.h
         src/core/zztempholder.h)
 
 SET(PBRT_CORE_SOURCE
@@ -183,7 +186,10 @@ SET(PBRT_CORE_SOURCE
         src/shapes/curve.cpp
         src/core/memory.cpp
         src/core/primitives.cpp
-        src/core/material.cpp)
+        src/core/material.cpp
+        src/core/parallel.cpp
+        src/core/progressreporter.cpp
+        src/core/stats.cpp)
 
 # Set files
 # todo: complete file list
@@ -191,6 +197,7 @@ FILE(GLOB PBRT_SOURCE
         src/ext/*.c
         src/ext/*.cpp
         src/shapes/*.cpp
+        src/accelerators/*.cpp
         )
 
 # Add additional directories
