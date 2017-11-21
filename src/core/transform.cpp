@@ -244,17 +244,16 @@ SurfaceInteraction Transform::operator()(const SurfaceInteraction &si) const {
     ret.shading.dpdv = t(si.shading.dpdv);
     ret.shading.dndu = t(si.shading.dndu);
     ret.shading.dndv = t(si.shading.dndv);
-    // todo: uncomment this
-//    ret.dudx = si.dudx;
-//    ret.dvdx = si.dvdx;
-//    ret.dudy = si.dudy;
-//    ret.dvdy = si.dvdy;
-//    ret.dpdx = t(si.dpdx);
-//    ret.dpdy = t(si.dpdy);
-//    ret.bsdf = si.bsdf;
-//    ret.bssrdf = si.bssrdf;
-//    ret.primitive = si.primitive;
-    //    ret.n = Faceforward(ret.n, ret.shading.n);
+    ret.dudx = si.dudx;
+    ret.dvdx = si.dvdx;
+    ret.dudy = si.dudy;
+    ret.dvdy = si.dvdy;
+    ret.dpdx = t(si.dpdx);
+    ret.dpdy = t(si.dpdy);
+    ret.bsdf = si.bsdf;
+    ret.bssrdf = si.bssrdf;
+    ret.primitive = si.primitive;
+    // ret.n = Faceforward(ret.n, ret.shading.n);
     ret.shading.n = Faceforward(ret.shading.n, ret.n);
     return ret;
 }

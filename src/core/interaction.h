@@ -13,39 +13,10 @@
 #include "pbrt.h"
 #include "geometry.h"
 #include "transform.h"
+#include "material.h"
+#include "zztempholder.h"
 
 namespace pbrt {
-
-// todo: declare Medium in the right place
-class Medium {
-public:
-    Medium() : a(0) {}
-    bool operator==(const Medium& m){ return a == m.a; }
-    bool operator!=(const Medium& m){ return a != m.a; }
-
-    int a;
-};
-
-// todo: declare MediumInterface in the right place
-struct MediumInterface {
-    MediumInterface() : inside(nullptr), outside(nullptr) {}
-    // MediumInterface Public Methods
-    MediumInterface(const Medium *medium) : inside(medium), outside(medium) {}
-    MediumInterface(const Medium *inside, const Medium *outside)
-            : inside(inside), outside(outside) {}
-    bool IsMediumTransition() const { return inside != outside; }
-    const Medium *inside, *outside;
-};
-
-// todo: declare Texture in the right place
-template <typename T>
-class Texture {
-public:
-    // Texture Interface
-    virtual T Evaluate(const SurfaceInteraction &) const = 0;
-    virtual ~Texture() {}
-};
-
 
 // Interaction Declarations
 struct Interaction {
@@ -116,6 +87,12 @@ public:
     void SetShadingGeometry(const Vector3f &dpdu, const Vector3f &dpdv,
                             const Normal3f &dndu, const Normal3f &dndv,
                             bool orientationIsAuthoritative);
+    void ComputeScatteringFunctions(
+            const RayDifferential &ray, MemoryArena &arena,
+            bool allowMultipleLobes = false,
+            TransportMode mode = TransportMode::Radiance);
+    void ComputeDifferentials(const RayDifferential &r) const;
+    // todo: add le method
 
     // SurfaceInteraction Public Data
     Point2f uv;
@@ -127,6 +104,11 @@ public:
         Vector3f dpdu, dpdv;
         Normal3f dndu, dndv;
     } shading;
+    const Primitive *primitive = nullptr;
+    BSDF *bsdf = nullptr;
+    BSSRDF *bssrdf = nullptr;
+    mutable Vector3f dpdx, dpdy;
+    mutable Float dudx = 0, dvdx = 0, dudy = 0, dvdy = 0;
 
 };
 

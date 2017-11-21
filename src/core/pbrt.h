@@ -75,6 +75,8 @@ class AnimatedTransform;
 struct Interaction;
 class SurfaceInteraction;
 class Shape;
+class Primitive;
+class GeometricPrimitive;
 
 class Material;
 template <typename T>
@@ -82,6 +84,9 @@ class Texture;
 class Medium;
 class MediumInteraction;
 struct MediumInterface;
+class AreaLight;
+class BSSRDF;
+class BSDF;
 
 //#define PBRT_FLOAT_AS_DOUBLE
 #ifdef PBRT_FLOAT_AS_DOUBLE
