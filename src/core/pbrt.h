@@ -77,7 +77,12 @@ class SurfaceInteraction;
 class Shape;
 class Primitive;
 class GeometricPrimitive;
-
+template <int nSpectrumSamples>
+class CoefficientSpectrum;
+class RGBSpectrum;
+class SampledSpectrum;
+typedef RGBSpectrum Spectrum;
+// typedef SampledSpectrum Spectrum;
 class Material;
 template <typename T>
 class Texture;

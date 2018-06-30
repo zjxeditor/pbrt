@@ -172,7 +172,8 @@ SET(PBRT_CORE_HEADERS
         src/core/parallel.h
         src/core/progressreporter.h
         src/core/stats.h
-        src/core/zztempholder.h)
+        src/core/zztempholder.h
+        src/core/spectrum.h)
 
 SET(PBRT_CORE_SOURCE
         src/core/geometry.cpp
@@ -189,7 +190,8 @@ SET(PBRT_CORE_SOURCE
         src/core/material.cpp
         src/core/parallel.cpp
         src/core/progressreporter.cpp
-        src/core/stats.cpp)
+        src/core/stats.cpp
+        src/core/spectrum.cpp)
 
 # Set files
 # todo: complete file list
